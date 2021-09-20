@@ -11,8 +11,8 @@ function getButtonStyles({ type }) {
         }
         &:hover {
           cursor: pointer;
-          border: 2px solid #2c46a6;
-          background: #2c46a6;
+          border: 2px solid #A566FF;
+          background: #A566FF;
           box-shadow: 0 10px 21px 0 rgba(161, 175, 184, 0.89);
           border-radius: 23px;
         }
@@ -89,7 +89,7 @@ function getButtonStyles({ type }) {
 function getButtonDefaultStyles(p) {
   return `
     color: white;
-    background: #5384FE;
+    background: #A566FF;
     padding: 10px 25px;
     border-radius: 25px;
     font-size: 14px;
@@ -99,7 +99,7 @@ function getButtonDefaultStyles(p) {
     letter-spacing: 1.5px;
     //box-shadow: 0 10px 21px 0 #bed0dc;
     transition: 0.2s all;
-    border: 2px solid #5384FE;
+    border: 2px solid #A566FF;
 
     &:focus {
       outline: 0;

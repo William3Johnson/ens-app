@@ -3,15 +3,9 @@ import styled from '@emotion/styled'
 import { Link } from 'react-router-dom'
 import mq from 'mediaQuery'
 
-import ENSLogo from '../assets/ensIconLogo.svg'
-import LogoTyped from '../assets/TypeLogo'
+import EWLogo from '../assets/ewIconLogo.svg'
 
-const IconLogo = styled('img')`
-  width: 30px;
-  ${mq.medium`
-    width: 34px
-  `}
-`
+const IconLogo = styled('img')``
 
 const LogoContainer = styled(Link)`
   display: flex;
@@ -28,8 +22,7 @@ const LogoContainer = styled(Link)`
 
 const Logo = ({ color, className, to = '' }) => (
   <LogoContainer className={className} to={to}>
-    <IconLogo src={ENSLogo} />
-    <LogoTyped color={color} />
+    <IconLogo src={EWLogo} />
   </LogoContainer>
 )
 
