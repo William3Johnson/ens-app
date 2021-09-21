@@ -1,0 +1,41 @@
+name: Deploy Server
+
+on:
+  push:
+    branches: [ 'dev', 'DOI-1331_ens_app' ]
+  pull_request:
+    branches: [ 'dev' ]
+
+jobs:
+  cancel-previous:
+    name: 'Cancel Previous Runs'
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: styfle/cancel-workflow-action@0.8.0
+        with:
+          access_token: ${{ github.token }}
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: cancel-previous
+    env:
+      SERVER_DIR: ~/ens-app
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Deploy server on instance
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SERVER_KEY }}
+          port: ${{ secrets.SERVER_PORT }}
+          script: |
+            cd ${{ env.SERVER_DIR }}/
+            git pull
+            yarn install
+            sudo systemctl restart supervisor
