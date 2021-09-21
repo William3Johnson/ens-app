@@ -49,7 +49,7 @@ const SearchForm = styled('form')`
   }
 
   button {
-    background: #5284ff;
+    background: #a566ff;
     color: white;
     font-size: 22px;
     font-family: Overpass;

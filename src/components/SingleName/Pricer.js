@@ -39,14 +39,16 @@ export default function Pricer({
   ethUsdPriceLoading,
   ethUsdPrice,
   name,
-  className
+  className,
+  tld
 }) {
   return (
     <Query
       query={GET_RENT_PRICE}
       variables={{
         name,
-        duration
+        duration,
+        tld
       }}
     >
       {({ data, loading }) => {

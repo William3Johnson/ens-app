@@ -11,8 +11,8 @@ export const GET_WEB3 = gql`
 `
 
 export const GET_PUBLIC_RESOLVER = gql`
-  query getPublicResolver {
-    publicResolver @client {
+  query getPublicResolver($tld: String) {
+    publicResolver(tld: $tld) @client {
       address
     }
   }
@@ -169,14 +169,14 @@ export const GET_DOMAINS_OWNED_BY_ADDRESS_FROM_SUBGRAPH = gql`
 /* Permanent Registrar */
 
 export const GET_RENT_PRICE = gql`
-  query getRentPrice($name: String, $duration: Number) {
-    getRentPrice(name: $name, duration: $duration) @client
+  query getRentPrice($name: String, $duration: Number, $tld: String) {
+    getRentPrice(name: $name, duration: $duration, tld: $tld) @client
   }
 `
 
 export const GET_MINIMUM_COMMITMENT_AGE = gql`
-  query getMinimumCommitmentAge {
-    getMinimumCommitmentAge @client
+  query getMinimumCommitmentAge($tld: String) {
+    getMinimumCommitmentAge(tld: $tld) @client
   }
 `
 

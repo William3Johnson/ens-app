@@ -13,7 +13,7 @@ import {
   reclaim,
   submitProof,
   getOwner
-} from '@ensdomains/ui'
+} from '@energywebfoundation/ui'
 
 import modeNames from '../modes'
 import { sendHelper } from '../resolverUtils'
@@ -27,12 +27,12 @@ function randomSecret() {
 
 const resolvers = {
   Query: {
-    async getRentPrice(_, { name, duration }, { cache }) {
-      return await getRentPrice(name, duration)
+    async getRentPrice(_, { name, duration, tld }, { cache }) {
+      return await getRentPrice(name, duration, tld)
     },
-    async getMinimumCommitmentAge() {
+    async getMinimumCommitmentAge(_, { tld }) {
       try {
-        const minCommitmentAge = await getMinimumCommitmentAge()
+        const minCommitmentAge = await getMinimumCommitmentAge(tld)
         return parseInt(minCommitmentAge)
       } catch (e) {
         console.log(e)
@@ -40,28 +40,29 @@ const resolvers = {
     }
   },
   Mutation: {
-    async commit(_, { label }, { cache }) {
+    async commit(_, { label, tld }, { cache }) {
       //Generate secret
       const secret = randomSecret()
       secrets[label] = secret
-      const tx = await commit(label, secret)
+      const tx = await commit(label, secret, tld)
       return sendHelper(tx)
     },
-    async register(_, { label, duration }) {
+    async register(_, { label, duration, tld }) {
       const secret = secrets[label]
-      const tx = await register(label, duration, secret)
+      const tx = await register(label, duration, secret, tld)
 
       return sendHelper(tx)
     },
-    async reclaim(_, { name, address }) {
-      const tx = await reclaim(name, address)
+    async reclaim(_, { name, address, tld }) {
+      //console.log("yolo reclaim", label, tld)
+      const tx = await reclaim(name, address, tld)
       return sendHelper(tx)
     },
-    async renew(_, { label, duration }) {
-      const tx = await renew(label, duration)
+    async renew(_, { label, duration, tld }) {
+      const tx = await renew(label, duration, tld)
       return sendHelper(tx)
     },
-    async getDomainAvailability(_, { name }, { cache }) {
+    async getDomainAvailability(_, { name, tld }, { cache }) {
       try {
         const {
           state,
@@ -69,7 +70,7 @@ const resolvers = {
           revealDate,
           value,
           highestBid
-        } = await getEntry(name)
+        } = await getEntry(name, tld)
         let owner = null
         if (isShortName(name)) {
           cache.writeData({
@@ -79,12 +80,12 @@ const resolvers = {
         }
 
         if (modeNames[state] === 'Owned') {
-          owner = await getOwner(`${name}.eth`)
+          owner = await getOwner(`${name}.${tld}`)
         }
 
         const data = {
           domainState: {
-            name: `${name}.eth`,
+            name: `${name}.${tld}`,
             state: modeNames[state],
             registrationDate,
             revealDate,

@@ -6,7 +6,7 @@ import {
   isLabelValid as _isLabelValid,
   isEncodedLabelhash,
   emptyAddress as _emptyAddress
-} from '@ensdomains/ui'
+} from '@energywebfoundation/ui'
 import * as jsSHA3 from 'js-sha3'
 import { saveName } from '../api/labels'
 
@@ -69,6 +69,12 @@ export async function getEtherScanAddr() {
     case 4:
     case '4':
       return 'https://rinkeby.etherscan.io/'
+    case 73799:
+    case '73799':
+      return 'https://volta-explorer.energyweb.org'
+    case 246:
+    case '246':
+      return 'https://explorer.energyweb.org'
     default:
       return 'https://etherscan.io/'
   }

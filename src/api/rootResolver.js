@@ -1,5 +1,10 @@
-import { getWeb3, getAccounts, getNetworkId, isReadOnly } from '@ensdomains/ui'
-import { getAddress } from '@ensdomains/ui'
+import {
+  getWeb3,
+  getAccounts,
+  getNetworkId,
+  isReadOnly
+} from '@energywebfoundation/ui'
+import { getAddress } from '@energywebfoundation/ui'
 import merge from 'lodash/merge'
 import fifsResolvers, {
   defaults as fifsDefaults
@@ -49,6 +54,10 @@ const resolvers = {
           return 'goerli'
         case 42:
           return 'kovan'
+        case 73799:
+          return 'volta'
+        case 246:
+          return 'EWC'
         default:
           return 'private'
       }
@@ -67,9 +76,9 @@ const resolvers = {
         return null
       }
     },
-    publicResolver: async () => {
+    publicResolver: async (_, { tld }) => {
       try {
-        const resolver = await getAddress('resolver.eth')
+        const resolver = await getAddress('resolver' + tld)
         return {
           address: resolver,
           __typename: 'Resolver'

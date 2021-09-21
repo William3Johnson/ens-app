@@ -2,20 +2,20 @@ import React, { Fragment } from 'react'
 import { Link } from 'react-router-dom'
 import styled from '@emotion/styled'
 import { Spring } from 'react-spring'
-import warning from '../assets/yellowwarning.svg'
+import warning from '../assets/whitewarning.svg'
 
 import mq from 'mediaQuery'
 
 import SearchDefault from '../components/SearchName/Search'
 import NoAccountsDefault from '../components/NoAccounts/NoAccountsModal'
-import bg from '../assets/heroBG.jpg'
+import bg from '../assets/heroBG2.svg'
 import NetworkInfoQuery from '../components/NetworkInformation/NetworkInfoQuery'
 import { ExternalButtonLink, ButtonLink } from '../components/Forms/Button'
 import TextBubbleDefault from '../components/Icons/TextBubble'
 import QuestionMarkDefault from '../components/Icons/QuestionMark'
 import HowToUseDefault from '../components/HowToUse/HowToUse'
 import Alice from '../components/HomePage/Alice'
-import ENSLogo from '../components/HomePage/images/ENSLogo.svg'
+import EWLogo from '../assets/EWLogo.svg'
 import { ReactComponent as DefaultPermanentRegistrarIcon } from '../components/Icons/PermanentRegistrar.svg'
 
 const Favourites = styled('div')`
@@ -30,16 +30,17 @@ const Favourites = styled('div')`
 const Announcement = styled('div')`
   display: flex;
   justify-content: center;
-  background: #5284ff;
-  border-bottom: #5284ff solid 3px;
+  background: #9b54ff;
   h3 {
-    color: #f5a623;
+    color: #fff;
     font-weight: 400;
     text-align: center;
     padding: 0 20px;
+    display: flex;
+    align-items: flex-end;
   }
   a {
-    color: #f5a623;
+    color: #fff;
     text-decoration: underline;
   }
 `
@@ -47,7 +48,6 @@ const Announcement = styled('div')`
 const HowToUse = styled(HowToUseDefault)`
   padding: 70px;
 `
-
 const Hero = styled('section')`
   background: url(${bg});
   background-size: cover;
@@ -225,7 +225,12 @@ const PermanentRegistrarLogo = styled('h1')`
 `
 
 const PermanentRegistrar = styled('div')`
-  background-image: linear-gradient(24deg, #52e5ff 0%, #513eff 100%);
+  background-image: linear-gradient(
+    81.41deg,
+    #ceabff -16.62%,
+    #9b54ff 44.42%,
+    #504eff 93.27%
+  );
   padding: 80px 0;
   display: flex;
   flex-direction: column;
@@ -283,16 +288,14 @@ export default props => (
                   opacity,
                   transform: `scale(${scale})`
                 }}
-                src={ENSLogo}
+                src={EWLogo}
               />
               <PermanentRegistrarLogo
                 style={{
                   opacity,
                   transform: `scale(${scale})`
                 }}
-              >
-                Permanent Registrar
-              </PermanentRegistrarLogo>
+              />
               <Search />
             </Fragment>
           )}

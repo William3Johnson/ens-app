@@ -130,38 +130,38 @@ export const MIGRATE_RESOLVER = gql`
 /* Registrar Mutations */
 
 export const SET_REGISTRANT = gql`
-  mutation setRegistrant($name: String, $address: String) {
-    setRegistrant(name: $name, address: $address) @client
+  mutation setRegistrant($name: String, $address: String, $tld: String) {
+    setRegistrant(name: $name, address: $address, tld: $tld) @client
   }
 `
 
 export const RECLAIM = gql`
-  mutation reclaim($name: String, $address: String) {
-    reclaim(name: $name, address: $address) @client
+  mutation reclaim($name: String, $address: String, $tld: String) {
+    reclaim(name: $name, address: $address, tld: $tld) @client
   }
 `
 
 export const COMMIT = gql`
-  mutation commit($label: String) {
-    commit(label: $label) @client
+  mutation commit($label: String, $tld: String) {
+    commit(label: $label, tld: $tld) @client
   }
 `
 
 export const REGISTER = gql`
-  mutation register($label: String, $duration: Int) {
-    register(label: $label, duration: $duration) @client
+  mutation register($label: String, $duration: Int, $tld: String) {
+    register(label: $label, duration: $duration, tld: $tld) @client
   }
 `
 
 export const RENEW = gql`
-  mutation renew($label: String, $duration: Int) {
-    renew(label: $label, duration: $duration) @client
+  mutation renew($label: String, $duration: Int, $tld: String) {
+    renew(label: $label, duration: $duration, tld: $tld) @client
   }
 `
 
 export const RELEASE_DEED = gql`
-  mutation releaseDeed($label: String) {
-    releaseDeed(label: $label) @client
+  mutation releaseDeed($label: String, $tld: String) {
+    releaseDeed(label: $label, tld: $tld) @client
   }
 `
 

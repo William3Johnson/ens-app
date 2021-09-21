@@ -27,7 +27,7 @@ const RightBar = styled('div')`
 const Favourite = styled(DefaultFavourite)``
 
 function isRegistrationOpen(available, parent, isDeedOwner) {
-  return parent === 'eth' && !isDeedOwner && available
+  return (parent === 'eth' || parent === 'ewc') && !isDeedOwner && available
 }
 
 function isDNSRegistrationOpen(domain) {

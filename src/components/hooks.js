@@ -105,7 +105,8 @@ export function useEthPrice(enabled = true) {
     if (enabled) {
       getEtherPrice()
         .then(res => {
-          setPrice(res.result.ethusd)
+          console.log({ res })
+          setPrice(res['energy-web-token'].eur)
           setLoading(false)
         })
         .catch(() => '') // ignore error

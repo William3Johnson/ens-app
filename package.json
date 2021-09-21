@@ -7,6 +7,7 @@
     "@0xproject/utils": "^0.7.3",
     "@emotion/core": "^10.0.9",
     "@emotion/styled": "^10.0.9",
+    "@energywebfoundation/ui": "git+https://github.com/energywebfoundation/ui.git",
     "@ensdomains/address-encoder": "^0.1.2",
     "@ensdomains/ens": "^0.4.4",
     "@ensdomains/ens-022": "npm:@ensdomains/ens@0.2.2",

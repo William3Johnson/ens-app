@@ -46,6 +46,7 @@ function SingleName({
         }
         setValid(true)
       }
+      console.log(_type)
       setType(_type)
     }
   }, [searchTerm])

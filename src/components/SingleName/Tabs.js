@@ -6,7 +6,7 @@ import mq from 'mediaQuery'
 
 const TabLink = styled(Link)`
   font-size: 14px;
-  background: ${({ active }) => (active ? '#2C46A6' : 'transparent')};
+  background: ${({ active }) => (active ? '#7323E6' : 'transparent')};
   color: ${({ active }) => (active ? 'white' : '#D2D2D2')};
   transform: scale(${({ active }) => (active ? '1.08' : '1')});
   transition: background 0.1s ease-out, transform 0.3s ease-out;
@@ -39,7 +39,7 @@ const TabContainer = styled('div')`
 `
 function getDetailsActive(domain, pathname, tab) {
   const { name } = domain
-  if (domain.parent !== 'eth') {
+  if (domain.parent !== 'eth' && domain.parent !== 'ewc') {
     return (
       pathname !== `/name/${name}/register` &&
       pathname !== `/name/${name}/subdomains`
@@ -57,7 +57,7 @@ const Tabs = ({ domain, pathname, parent, tab }) => {
   return (
     (state !== 'Auction' || state !== 'Reveal') && (
       <TabContainer>
-        {parent === 'eth' && (
+        {(parent === 'eth' || parent === 'ewc') && (
           <TabLink
             active={
               (tab === 'register' || pathname === `/name/${name}/register`) &&

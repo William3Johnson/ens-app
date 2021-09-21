@@ -3,16 +3,17 @@ import ReactDOM from 'react-dom'
 import { ApolloProvider } from 'react-apollo'
 import 'core-js/es/object'
 import App from 'App'
-import { setupENS } from '@ensdomains/ui'
+import { setupENS } from '@energywebfoundation/ui'
 import { SET_ERROR } from 'graphql/mutations'
 
 import { GlobalStateProvider } from 'globalState'
 import 'globalStyles'
 import { setupClient } from 'apolloClient'
-import { getNetworkId } from '@ensdomains/ui'
+import { getNetworkId } from '@energywebfoundation/ui'
 
 window.addEventListener('load', async () => {
   let client
+  let networkId
 
   try {
     if (
@@ -29,10 +30,14 @@ window.addEventListener('load', async () => {
         reloadOnAccountsChange: false
       })
     }
-    const networkId = await getNetworkId()
+    networkId = await getNetworkId()
     client = await setupClient(networkId)
   } catch (e) {
     console.log(e)
+    if (!client) {
+      client = await setupClient(networkId)
+    }
+
     await client.mutate({
       mutation: SET_ERROR,
       variables: { message: e.message }
