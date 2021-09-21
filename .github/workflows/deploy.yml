@@ -2,7 +2,7 @@ name: Deploy Server
 
 on:
   push:
-    branches: [ 'dev', 'DOI-1331_ens_app' ]
+    branches: [ 'dev' ]
   pull_request:
     branches: [ 'dev' ]
 
