@@ -183,7 +183,7 @@ const Domain = ({ domain, isSubDomain, className, isFavourite, loading }) => {
                 <Price className="price">
                   {domain.price
                     ? domain.price > 0
-                      ? `${domain.price} ETH`
+                      ? `${domain.price} EWT`
                       : 'Free'
                     : ''}
                 </Price>
