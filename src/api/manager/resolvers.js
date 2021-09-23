@@ -314,7 +314,7 @@ const resolvers = {
     },
     getResolverMigrationInfo: async (_, { name, resolver }, { cache }) => {
       /* TODO add hardcoded resolver addresses */
-      let nametld = name.split('.').slice(-1)[0] || 'eth'
+      let nametld = name.split('.').slice(-1)[0] || 'ewc'
 
       const networkId = await getNetworkId()
 
@@ -381,7 +381,7 @@ const resolvers = {
         )
       }
 
-      async function calculateIsPublicResolverReady(_tld = 'eth') {
+      async function calculateIsPublicResolverReady(_tld = 'ewc') {
         const publicResolver = await getAddress('resolver' + _tld)
         return !OLD_RESOLVERS.map(a => a.toLowerCase()).includes(publicResolver)
       }
@@ -707,7 +707,7 @@ const resolvers = {
       // get public resolver
       try {
         const publicResolver = await getAddress(
-          'resolver.' + (name.split('.').slice(-1)[0] || 'eth')
+          'resolver.' + (name.split('.').slice(-1)[0] || 'ewc')
         )
         const resolver = await getResolver(name)
         const isOldContentResolver = calculateIsOldContentResolver(resolver)

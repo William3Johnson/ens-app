@@ -189,7 +189,7 @@ function DetailsContainer({
   duringMigration
 }) {
   console.log('yolo:', domain)
-  console.log('yolo2:', {
+  console.log(' :', {
     isMigratedToNewRegistry,
     isDeedOwner,
     isRegistrant,
