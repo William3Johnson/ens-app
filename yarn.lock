@@ -1135,9 +1135,9 @@
   resolved "https://registry.yarnpkg.com/@emotion/weak-memoize/-/weak-memoize-0.2.3.tgz#dfa0c92efe44a1d1a7974fb49ffeb40ef2da5a27"
   integrity sha512-zVgvPwGK7c1aVdUVc9Qv7SqepOGRDrqCw7KZPSZziWGxSlbII3gmvGLPzLX4d0n0BMbamBacUrN22zOMyFFEkQ==
 
-"@energywebfoundation/ui@git+https://github.com/energywebfoundation/ui.git":
+"@energywebfoundation/ens-ui@git+https://github.com/energywebfoundation/ens-ui.git":
   version "2.0.12"
-  resolved "git+https://github.com/energywebfoundation/ui.git#b134f0048fa3fa5c41259304b1ffd8ac83392fd7"
+  resolved "git+https://github.com/energywebfoundation/ens-ui.git#8ecdc6e574ce30bde4c5a71175fc98861fe6b1a4"
   dependencies:
     "@0xproject/utils" "^2.0.2"
     "@babel/runtime" "^7.4.4"

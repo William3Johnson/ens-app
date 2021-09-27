@@ -37,7 +37,7 @@ import {
   getOldResolverContract,
   getNamehash,
   encodeContenthash
-} from '@energywebfoundation/ui'
+} from '@energywebfoundation/ens-ui'
 import { formatsByName } from '@ensdomains/address-encoder'
 import isEqual from 'lodash/isEqual'
 import { query } from '../subDomainRegistrar'

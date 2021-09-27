@@ -1,7 +1,10 @@
 import React from 'react'
 import styled from '@emotion/styled'
 import { ReactComponent as ExternalLinkIcon } from '../Icons/externalLink.svg'
-import { decodeContenthash, encodeContenthash } from '@energywebfoundation/ui'
+import {
+  decodeContenthash,
+  encodeContenthash
+} from '@energywebfoundation/ens-ui'
 
 const ContentHashLinkContainer = styled('a')`
   display: inline-block;

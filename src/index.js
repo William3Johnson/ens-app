@@ -3,13 +3,13 @@ import ReactDOM from 'react-dom'
 import { ApolloProvider } from 'react-apollo'
 import 'core-js/es/object'
 import App from 'App'
-import { setupENS } from '@energywebfoundation/ui'
+import { setupENS } from '@energywebfoundation/ens-ui'
 import { SET_ERROR } from 'graphql/mutations'
 
 import { GlobalStateProvider } from 'globalState'
 import 'globalStyles'
 import { setupClient } from 'apolloClient'
-import { getNetworkId } from '@energywebfoundation/ui'
+import { getNetworkId } from '@energywebfoundation/ens-ui'
 
 window.addEventListener('load', async () => {
   let client
@@ -21,19 +21,20 @@ window.addEventListener('load', async () => {
       process.env.REACT_APP_ENS_ADDRESS
     ) {
       await setupENS({
-        reloadOnAccountsChange: true,
+        reloadOnAccountsChange: false,
         customProvider: 'http://localhost:8545',
         ensAddress: process.env.REACT_APP_ENS_ADDRESS
       })
     } else {
       await setupENS({
-        reloadOnAccountsChange: true
+        reloadOnAccountsChange: false
       })
     }
     networkId = await getNetworkId()
     client = await setupClient(networkId)
   } catch (e) {
     console.log(e)
+    networkId = networkId || 1
     if (!client) {
       client = await setupClient(networkId)
     }

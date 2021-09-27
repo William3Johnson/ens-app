@@ -1,4 +1,7 @@
-import { encodeContenthash, isValidContenthash } from '@energywebfoundation/ui'
+import {
+  encodeContenthash,
+  isValidContenthash
+} from '@energywebfoundation/ens-ui'
 import { addressUtils } from 'utils/utils'
 import { formatsByName } from '@ensdomains/address-encoder'
 
