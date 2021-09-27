@@ -31,13 +31,10 @@ function isRegistrationOpen(available, parent, isDeedOwner) {
 }
 
 function isDNSRegistrationOpen(domain) {
-  if (!domain) return false
   return domain.isDNSRegistrar && domain.owner === EMPTY_ADDRESS
 }
 
 function isOwnerOfDomain(domain, account) {
-  if (!domain || !account) return false
-
   if (domain.owner !== EMPTY_ADDRESS) {
     return domain.owner.toLowerCase() === account.toLowerCase()
   }
@@ -45,8 +42,6 @@ function isOwnerOfDomain(domain, account) {
 }
 
 function isOwnerOfParentDomain(domain, account) {
-  if (!domain || !account) return false
-
   if (domain.parentOwner !== EMPTY_ADDRESS) {
     return domain.parentOwner.toLowerCase() === account.toLowerCase()
   }

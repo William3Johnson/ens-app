@@ -1,5 +1,8 @@
 import jsSHA3 from 'js-sha3'
-import { isEncodedLabelhash, decodeLabelhash } from '@energywebfoundation/ui'
+import {
+  isEncodedLabelhash,
+  decodeLabelhash
+} from '@energywebfoundation/ens-ui'
 
 function getLabels() {
   return JSON.parse(localStorage.getItem('labels')) || {}

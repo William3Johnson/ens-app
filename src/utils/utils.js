@@ -6,7 +6,7 @@ import {
   isLabelValid as _isLabelValid,
   isEncodedLabelhash,
   emptyAddress as _emptyAddress
-} from '@energywebfoundation/ui'
+} from '@energywebfoundation/ens-ui'
 import * as jsSHA3 from 'js-sha3'
 import { saveName } from '../api/labels'
 

@@ -3,8 +3,8 @@ import {
   getAccounts,
   getNetworkId,
   isReadOnly
-} from '@energywebfoundation/ui'
-import { getAddress } from '@energywebfoundation/ui'
+} from '@energywebfoundation/ens-ui'
+import { getAddress } from '@energywebfoundation/ens-ui'
 import merge from 'lodash/merge'
 import fifsResolvers, {
   defaults as fifsDefaults

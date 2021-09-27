@@ -13,7 +13,7 @@ import {
   reclaim,
   submitProof,
   getOwner
-} from '@energywebfoundation/ui'
+} from '@energywebfoundation/ens-ui'
 
 import modeNames from '../modes'
 import { sendHelper } from '../resolverUtils'
