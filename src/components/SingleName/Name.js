@@ -31,10 +31,13 @@ function isRegistrationOpen(available, parent, isDeedOwner) {
 }
 
 function isDNSRegistrationOpen(domain) {
+  if (!domain) return false
   return domain.isDNSRegistrar && domain.owner === EMPTY_ADDRESS
 }
 
 function isOwnerOfDomain(domain, account) {
+  if (!domain || !account) return false
+
   if (domain.owner !== EMPTY_ADDRESS) {
     return domain.owner.toLowerCase() === account.toLowerCase()
   }
@@ -42,6 +45,8 @@ function isOwnerOfDomain(domain, account) {
 }
 
 function isOwnerOfParentDomain(domain, account) {
+  if (!domain || !account) return false
+
   if (domain.parentOwner !== EMPTY_ADDRESS) {
     return domain.parentOwner.toLowerCase() === account.toLowerCase()
   }
@@ -54,11 +59,12 @@ function Name({ details: domain, name, pathname, type, refetch }) {
   const account = useAccount()
   const isOwner = isOwnerOfDomain(domain, account)
   const isOwnerOfParent = isOwnerOfParentDomain(domain, account)
-  const hasAnOwner = parseInt(domain.owner, 16) !== 0
+  const hasAnOwner = domain ? parseInt(domain.owner, 16) !== 0 : false
   const preferredTab = hasAnOwner ? 'details' : 'register'
 
-  const isDeedOwner = domain.deedOwner === account
-  const isRegistrant = domain.registrant === account
+  const isDeedOwner = domain ? domain.deedOwner === account : false
+  const isRegistrant = domain ? domain.registrant === account : false
+  console.log({ domain, account })
   const registrationOpen = isRegistrationOpen(
     domain.available,
     domain.parent,
