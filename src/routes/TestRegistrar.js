@@ -71,7 +71,7 @@ class TestRegistrar extends Component {
           {({ loading, error, data }) => {
             if (loading) return <div>Loading web3</div>
             const { web3, people } = data
-            console.log(data)
+
             return (
               <Fragment>
                 <div>

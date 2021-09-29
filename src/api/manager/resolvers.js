@@ -510,7 +510,6 @@ const resolvers = {
       }
     },
     setAddr: async (_, { name, key, recordValue }, { cache }) => {
-      console.log(name, key, recordValue)
       try {
         const tx = await setAddr(name, key, recordValue)
         return sendHelper(tx)
@@ -741,7 +740,6 @@ const resolvers = {
         } else {
           const tx = await setResolver(name, publicResolver)
           const value = await sendHelper(tx)
-          console.log(value)
           return [value]
         }
       } catch (e) {

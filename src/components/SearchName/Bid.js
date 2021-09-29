@@ -17,12 +17,12 @@ const BidContainer = ({ domainState: { name, state } }) =>
 class BidForm extends Component {
   handleSubmit = (e, bid) => {
     e.preventDefault()
-    console.log(
-      this.props.name,
-      this.bidAmount.value,
-      this.decoyBidAmount.value,
-      this.secret.value
-    )
+    // console.log(
+    //   this.props.name,
+    //   this.bidAmount.value,
+    //   this.decoyBidAmount.value,
+    //   this.secret.value
+    // )
     bid({
       variables: {
         name: this.props.name,

@@ -29,13 +29,16 @@ const H2 = styled('h2')`
 
 const Message = styled('div')``
 
-export const NetworkError = ({ message }) => (
+export const NetworkError = ({
+  message,
+  browserMessage = 'Please change your dapp browser to Mainnet, Ropsten, Rinkeby or Goerli'
+}) => (
   <ErrorContainer>
     <Message>
       <Warning src={warningImage} />
       <H2>{message}</H2>
       <br />
-      Please change your dapp browser to Mainnet, Ropsten, Rinkeby or Goerli
+      {browserMessage}
     </Message>
   </ErrorContainer>
 )

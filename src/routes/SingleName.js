@@ -8,6 +8,7 @@ import Loader from '../components/Loader'
 import SearchErrors from '../components/SearchErrors/SearchErrors'
 
 import Name from '../components/SingleName/Name'
+import { NetworkError } from '../components/Error/Errors'
 
 function SingleName({
   match: {
@@ -57,16 +58,30 @@ function SingleName({
           if (loading) return <Loader large center />
           if (error)
             return <div>{(console.log(error), JSON.stringify(error))}</div>
+          if (Object.keys(data).length > 0) {
+            return (
+              <Name
+                details={data.singleName}
+                name={name}
+                pathname={pathname}
+                type={type}
+                refetch={refetch}
+              />
+            )
+          } else {
+            const tld = name.split('.')[1]
+            const browserMessage =
+              tld === 'ewc'
+                ? 'Please change your dapp browser to Volta, or EWC'
+                : ''
 
-          return (
-            <Name
-              details={data.singleName}
-              name={name}
-              pathname={pathname}
-              type={type}
-              refetch={refetch}
-            />
-          )
+            return (
+              <NetworkError
+                message={`Network Selected does not support the ".${tld}" name you want to buy, please change networks`}
+                browserMessage={browserMessage}
+              />
+            )
+          }
         }}
       </Query>
     )
