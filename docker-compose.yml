@@ -1,0 +1,9 @@
+version: "3.9"
+services:
+  ens_app:
+    image: ens_energyweb
+    build:
+      context: .
+    ports:
+      - 3000:3000
+
