@@ -27,7 +27,6 @@ doc.dataSources.forEach(s => {
   }
   if (name) {
     address = addresses[name]
-    console.log(`${s.name} == ${name}(${address})`)
     s.source.address = address
   }
 })

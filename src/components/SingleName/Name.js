@@ -54,12 +54,12 @@ function Name({ details: domain, name, pathname, type, refetch }) {
   const account = useAccount()
   const isOwner = isOwnerOfDomain(domain, account)
   const isOwnerOfParent = isOwnerOfParentDomain(domain, account)
-  const hasAnOwner = domain ? parseInt(domain.owner, 16) !== 0 : false
+  const hasAnOwner = parseInt(domain.owner, 16) !== 0
   const preferredTab = hasAnOwner ? 'details' : 'register'
 
-  const isDeedOwner = domain ? domain.deedOwner === account : false
-  const isRegistrant = domain ? domain.registrant === account : false
-  console.log({ domain, account })
+  const isDeedOwner = domain.deedOwner === account
+  const isRegistrant = domain.registrant === account
+
   const registrationOpen = isRegistrationOpen(
     domain.available,
     domain.parent,

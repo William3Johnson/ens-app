@@ -85,6 +85,7 @@ async function getRegistrarEntry(name) {
   }
 
   const entry = await getEntry(nameArray[0], nameArray[1])
+  debugger
   const {
     registrant,
     deedOwner,
@@ -510,7 +511,6 @@ const resolvers = {
       }
     },
     setAddr: async (_, { name, key, recordValue }, { cache }) => {
-      console.log(name, key, recordValue)
       try {
         const tx = await setAddr(name, key, recordValue)
         return sendHelper(tx)
@@ -741,7 +741,6 @@ const resolvers = {
         } else {
           const tx = await setResolver(name, publicResolver)
           const value = await sendHelper(tx)
-          console.log(value)
           return [value]
         }
       } catch (e) {

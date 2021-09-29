@@ -57,7 +57,7 @@ function SingleName({
           if (loading) return <Loader large center />
           if (error)
             return <div>{(console.log(error), JSON.stringify(error))}</div>
-
+          debugger
           return (
             <Name
               details={data.singleName}

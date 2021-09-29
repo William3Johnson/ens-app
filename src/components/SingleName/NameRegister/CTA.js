@@ -167,18 +167,6 @@ const CTA = ({
   readOnly,
   parent
 }) => {
-  console.log('yolo3', {
-    step,
-    parent,
-    incrementStep,
-    duration,
-    label,
-    setTimerRunning,
-    isAboveMinDuration,
-    refetch,
-    refetchIsMigrated,
-    readOnly
-  })
   const history = useHistory()
   const [txHash, setTxHash] = useState(undefined)
   return (
