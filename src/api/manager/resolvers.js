@@ -85,7 +85,6 @@ async function getRegistrarEntry(name) {
   }
 
   const entry = await getEntry(nameArray[0], nameArray[1])
-  debugger
   const {
     registrant,
     deedOwner,
