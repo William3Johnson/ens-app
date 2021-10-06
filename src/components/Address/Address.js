@@ -75,6 +75,12 @@ function filterOutReverse(domains) {
 }
 
 function DomainList({ domains, address }) {
+  return (
+    <NoDomainsContainer>
+      <h2>Address lookups are not supported yet</h2>
+    </NoDomainsContainer>
+  )
+
   const { loading, data, error } = useQuery(
     GET_DOMAINS_OWNED_BY_ADDRESS_FROM_SUBGRAPH,
     { variables: { id: address } }
@@ -127,7 +133,7 @@ export default function Address({ address }) {
           target="_blank"
           href={`${etherScanAddr}/address/${address}`}
         >
-          View on EtherScan
+          View in Explorer
         </ExternalButtonLink>
       )}
       <DomainList address={address} />
