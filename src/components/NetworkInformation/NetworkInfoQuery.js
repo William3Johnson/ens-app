@@ -30,7 +30,7 @@ const NetworkInfoQuery = ({ noLoader, children }) => (
     {({ data, loading, error }) => {
       if (loading)
         return noLoader ? (
-          ''
+          children({ accounts: [], network: '' })
         ) : (
           <Waiting>
             <WaitingText>Waiting for accounts</WaitingText> <Loader />

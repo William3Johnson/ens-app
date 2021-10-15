@@ -260,13 +260,13 @@ export default props => (
   <Fragment>
     <Hero>
       <NetworkInfoQuery noLoader={true}>
-        {({ accounts, network }) =>
-          accounts.length > 0 && network ? (
+        {({ accounts, network }) => {
+          return accounts.length > 0 && network ? (
             <NetworkStatus>{network} network</NetworkStatus>
           ) : (
             <NoAccounts textColour={'white'} />
           )
-        }
+        }}
       </NetworkInfoQuery>
       <Favourites>
         <Link to="/favourites">Favourites</Link>
